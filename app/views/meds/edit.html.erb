@@ -1,0 +1,41 @@
+<div>
+  (logo)
+  <%= "Hello #{current_user.email}!" %>
+  <%= link_to 'sign out', destroy_user_session_path, method: :delete
+    %>
+    <%= link_to 'my meds', "/index", method: :get %>
+  <hr />
+</div>
+
+
+<h2>Edit medication</h2>
+
+<%= form_for @med do |f| %>
+
+  <% if @med.errors.any? %>
+      <h3> <%= pluralize(@med.errors.count, "error") %> prohibited this movie from being saved </h3>
+      <ul>
+      <% @med.errors.full_messages.each do |message| %>
+          <li><%= message %> </li>
+      <% end %>
+      </ul>
+  <% end %>
+
+<p> <%= f.label "Med Name" %>
+    <%= f.text_field :med_name %> 
+</p>
+<p> <%= f.label "Dosage" %>
+    <%= f.text_field :dosage %> 
+</p>
+<p> <%= f.label "Time of Day" %>
+    <%= f.text_field :time_of_day %> 
+</p>
+<p> <%= f.label "Prescriber Name" %>
+    <%= f.text_field :prescriber %> 
+</p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+  

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  med_name: MyString
+  dosage: MyString
+  time_of_day: MyString
+  prescriber: MyString
+
+two:
+  med_name: MyString
+  dosage: MyString
+  time_of_day: MyString
+  prescriber: MyString
