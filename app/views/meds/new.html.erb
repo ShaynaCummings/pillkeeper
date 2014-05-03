@@ -1,8 +1,8 @@
 <div>
-  (logo)
-  <%= "Hello user" %>
-  <%= link_to 'sign out', destroy_user_session_path, method: :delete
-    %>
+  <%= image_tag("pillkeeperlogo.png", alt: "pillkeeper logo")%>
+  <%= "Hello #{current_user.email}!" %>
+  <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
+  <%= link_to 'my meds', meds_path, method: :get %>
   <hr />
 </div>
 
@@ -33,6 +33,6 @@
 </p>
 
   <p>
-    <%= f.submit "Update" %>
+    <%= f.submit "Add new med" %>
   </p>
 <% end %>

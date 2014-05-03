@@ -1,9 +1,8 @@
 <div>
-  (logo)
+  <%= image_tag("pillkeeperlogo.png", alt: "pillkeeper logo")%>
   <%= "Hello #{current_user.email}!" %>
-  <%= link_to 'sign out', destroy_user_session_path, method: :delete
-    %>
-    <%= link_to 'my meds', meds_path, method: :get %>
+  <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
+  <%= link_to 'my meds', meds_path, method: :get %>
   <hr />
 </div>
 
