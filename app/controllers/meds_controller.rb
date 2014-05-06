@@ -2,8 +2,12 @@ class MedsController < ApplicationController
 
   before_action :authenticate_user!
   
+  handles_sortable_columns
+  
   def index
    @meds = Med.all
+  # order = sortable_column_order
+  # @meds = Med.order(order)   
   end
   
   def show
@@ -44,6 +48,10 @@ class MedsController < ApplicationController
     redirect_to med_path
   end
 
+  def search
+    
+  end
+  
   
   private 
   

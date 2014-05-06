@@ -36,6 +36,10 @@ gem 'devise'
 
 gem 'bootstrap-sass'
 
+gem 'httparty', '~> 0.13.1'
+
+gem 'handles_sortable_columns'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

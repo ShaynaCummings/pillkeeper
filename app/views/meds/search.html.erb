@@ -1,0 +1,20 @@
+<div>
+  <%= image_tag("pillkeeperlogo.png", alt: "pillkeeper logo")%>
+  <%= "Hello #{current_user.email}!" %>
+  <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
+  <%= link_to 'my meds', meds_path, method: :get %>
+  <hr />
+</div>
+
+<h2>Medication Search</h2>
+
+<%= form_for @med do |f| %>
+
+<p> <%= f.label "enter the med Name" %>
+    <%= f.text_field :med_name %> 
+</p>
+ <p>
+    <%= f.submit "Search" %>
+  </p>
+  
+<% end %>
