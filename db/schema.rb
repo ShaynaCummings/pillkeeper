@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429234946) do
+ActiveRecord::Schema.define(version: 20140507045043) do
 
   create_table "meds", force: true do |t|
     t.string   "med_name"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20140429234946) do
     t.string   "prescriber"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
+    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|

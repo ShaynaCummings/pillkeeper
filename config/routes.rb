@@ -1,5 +1,5 @@
 Pillkeeper::Application.routes.draw do
-  root "static#index"
+  root to: "static#index"
   devise_for :users
   resources :meds
   resources :users, {only: [:edit, :show, :update]}
