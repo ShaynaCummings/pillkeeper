@@ -1,6 +1,6 @@
 <div>
   <%= image_tag("pillkeeperlogo.png", alt: "pillkeeper logo")%>
-    Hello <%= "#{current_user.first_name}!" %>
+  Hello <%=  "#{current_user.first_name}!" %>
   <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
   <%= link_to 'my meds', meds_path, method: :get %>
   <hr />
@@ -27,13 +27,20 @@
     <%= f.text_field :dosage %> 
 </p>
 <p> <%= f.label "Time of Day" %>
-    <%= f.text_field :time_of_day %> 
+    <%= check_box_tag(:breakfast) %>
+    <%= label_tag(:breakfast, "breakfast") %>
+    <%= check_box_tag(:lunch) %>
+    <%= label_tag(:lunch, "lunch") %>
+      <%= check_box_tag(:dinner) %>
+    <%= label_tag(:dinner, "dinner") %>
 </p>
+    
 <p> <%= f.label "Prescriber Name" %>
     <%= f.text_field :prescriber %> 
 </p>
-    <p> <%= f.label "Prescriber Email" %>
-    <%= f.text_field :email %> 
+<p>
+  <%= f.label "Prescriber Email" %>
+  <%= f.text_field :email %> 
 </p>
     
     <%= f.hidden_field :user_id, :value => current_user.id %>

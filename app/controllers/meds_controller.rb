@@ -46,12 +46,12 @@ class MedsController < ApplicationController
    # if @med.present?
       @med.delete
    # else
-   #   redirect_to user_path
+    redirect_to meds_path
    # end
   end
   
   def destroy
-    redirect_to user_path
+    redirect_to meds_path
   end
 
   def search 
@@ -60,12 +60,12 @@ class MedsController < ApplicationController
   
   private 
   
-  def verify_user!
-     if current_user.id != params[:id]
-       redirect_to user_root_path
+  #def verify_user!
+   #  if current_user.id != params[:id]
+    #   redirect_to root_path
        
-     end
-  end
+    # end
+  # end
 
     def safe_params
       params.require(:med).permit(:med_name, :dosage, :time_of_day, :prescriber, :email, :user_id)

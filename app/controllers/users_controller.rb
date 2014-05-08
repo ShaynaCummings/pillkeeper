@@ -27,7 +27,7 @@ class UsersController < ApplicationController
    end
    
   def redirect_if_not_correct_user!
-    redirect_to user_root_path unless correct_user?
+    redirect_to root_path unless correct_user?
   end
   
   def correct_user?
