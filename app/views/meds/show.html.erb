@@ -7,12 +7,12 @@
 
 <h2>Medication Detail: <%= @med.med_name.upcase %></h2>
 
-<p> Name: <%= @med.med_name %> <a href="#">lookup button here!</a></p> 
+<p> Name: <%= @med.med_name %></p> 
 <p> Dosage: <%= @med.dosage %></p>
 <p> Time of Day: <%= @med.time_of_day %></p>
-<p> <a href="#">lookup</a> </p> 
 <p> Prescriber: <%= @med.prescriber %></p>
 <p> Prescriber Email: <%= @med.email %></p>
+<p> Prescriber Phone: <%= @med.phone %></p>
 
 <p> <%= link_to 'edit', edit_med_path %></p>
 <p> <%= link_to 'back', meds_path %></p>

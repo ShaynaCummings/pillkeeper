@@ -64,7 +64,7 @@ class MedsController < ApplicationController
  #  end
 
     def safe_params
-      params.require(:med).permit(:med_name, :dosage, :time_of_day, :prescriber, :email, :user_id)
+      params.require(:med).permit(:med_name, :dosage, :time_of_day, :prescriber, :email, :phone, :user_id)
     end
   
 end

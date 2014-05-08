@@ -41,6 +41,10 @@
     <%= f.label "Prescriber Email" %>
     <%= f.text_field :email %> 
   </p>
+  
+<p> <%= f.label "Prescriber Phone" %>
+    <%= f.text_field :phone %> 
+</p>
       
   <%= f.hidden_field :user_id, :value => current_user.id %>
   
