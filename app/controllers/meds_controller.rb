@@ -2,12 +2,17 @@ class MedsController < ApplicationController
 
 # before_action :verify_user!
   
- # handles_sortable_columns
+ handles_sortable_columns
+  
+    handles_sortable_columns do |conf|
+    conf.sort_param = "s"
+    conf.page_param = "p"
+  end
   
   def index
    @meds = Med.all
-  # order = sortable_column_order
-  # @meds = Med.order(order)   
+   order = sortable_column_order
+   @meds = Med.order(order)   
   end
   
   def show
