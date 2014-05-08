@@ -36,7 +36,7 @@ gem 'devise'
 
 gem 'bootstrap-sass'
 
-gem 'httparty', '~> 0.13.1'
+# gem 'cancan'
 
 gem 'handles_sortable_columns'
 

@@ -1,10 +1,43 @@
 <div>
   <%= image_tag("pillkeeperlogo.png", alt: "pillkeeper logo")%>
-  <%= "Hello #{current_user.email}!" %>
+  <%= "Hello #{@current_user.first_name}!" %>
   <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
   <hr />
 </div>
+<h1> Edit my User Information </h1>
 
-<h1>User#edit</h1>
-<p>User Name:</p>
-<p>User Email:</p>
+
+
+<%= form_for @user do |f| %>
+
+  <% if @user.errors.any? %>
+      <h3> <%= pluralize(@user.errors.count, "error") %> prohibited this edit from being saved </h3>
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %> </li>
+      <% end %>
+      </ul>
+  <% end %>
+
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label "First Name" %>
+    <%= f.text_field :first_name %>
+  </p>
+
+  <p>
+    <%= f.label "Last Name" %>
+    <%= f.text_field :last_name %>
+  </p>
+
+  <p>
+    <%= f.submit "Save Profile" %>
+  </p>
+<% end %>
+
+<p><%= link_to "Change your password", edit_user_registration_path %></p>
+<%= link_to "<< back", user_path %>

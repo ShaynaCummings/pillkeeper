@@ -1,6 +1,6 @@
 <div>
   <%= image_tag("pillkeeperlogo.png", alt: "pillkeeper logo")%>
-  <%= "Hello #{current_user.email}!" %>
+  Hello <%=  link_to "#{current_user.first_name}!", user_path %>
   <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
   <%= link_to 'my meds', "/index", method: :get %>
   <hr />
@@ -32,9 +32,10 @@
 <p> <%= f.label "Prescriber Name" %>
     <%= f.text_field :prescriber %> 
 </p>
-    <p> <%= f.label "Prescriber Email" %>
+<p> <%= f.label "Prescriber Email" %>
     <%= f.text_field :email %> 
 </p>
+<%= f.hidden_field :user_id, :value => current_user.id %>
 
   <p>
     <%= f.submit "Update" %>

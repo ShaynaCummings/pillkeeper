@@ -1,10 +1,12 @@
 <div>
   <%= image_tag("pillkeeperlogo.png", alt: "pillkeeper logo")%>
-  <%= "Hello #{current_user.email}!" %>
+  Hello <%=  link_to "#{@current_user.first_name}!", user_path %>
   <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
   <hr />
 </div>
 
-<h1>User#show</h1>
-<p>User Name:</p>
-<p>User Email:</p>
+<h1>My user information</h1>
+<p>User Name: <%= "#{@current_user.first_name} " + "#{@current_user.last_name}" %> </p>
+<p>User Email: <%= "#{@current_user.email}" %> </p>
+
+<%= link_to "Edit my User Information", edit_user_registration_path %>

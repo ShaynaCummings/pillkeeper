@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   before_action :authenticate_user!, :redirect_if_not_correct_user!, except: :update
   
   def show
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
   private
   
    def safe_params
-        params.require(:user).permit(:email, :bio)
+     params.require(:user).permit(:email, :first_name, :last_name)
    end
    
   def redirect_if_not_correct_user!

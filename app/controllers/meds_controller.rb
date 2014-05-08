@@ -1,6 +1,6 @@
 class MedsController < ApplicationController
 
-  before_action :authenticate_user!
+ # before_action :verify_user!
   
  # handles_sortable_columns
   
@@ -25,7 +25,6 @@ class MedsController < ApplicationController
   
   def create
     @med = Med.new(safe_params)
-
     if @med.save
       redirect_to @med
     else
@@ -35,7 +34,6 @@ class MedsController < ApplicationController
     
    def update 
      @med = Med.find(params[:id])
-     @save
      if @med.update(safe_params)
        redirect_to @med
     else 
@@ -45,23 +43,32 @@ class MedsController < ApplicationController
   
   def delete
     @med = Med.find(params[:id])
-    @med.destroy
-    redirect_to med_path
+   # if @med.present?
+      @med.delete
+   # else
+   #   redirect_to user_path
+   # end
   end
   
   def destroy
-    redirect_to action: "index"
+    redirect_to user_path
   end
 
-  def search
-    
+  def search 
   end
   
   
   private 
   
+  def verify_user!
+     if current_user.id != params[:id]
+       redirect_to user_root_path
+       
+     end
+  end
+
     def safe_params
-      params.require(:med, :med_name).permit(:med_name, :dosage, :time_of_day, :prescriber, :email)
+      params.require(:med).permit(:med_name, :dosage, :time_of_day, :prescriber, :email, :user_id)
     end
   
 end
