@@ -1,11 +1,12 @@
-<div>
-  <%= link_to image_tag("pillkeeperlogo.png", alt: "pillkeeper logo"), root_path %>
-  Hello <%= link_to "#{current_user.first_name}!", user_path(current_user.id)  %>
-  <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
-  <hr />
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <p class="navbar-brand"><%= link_to image_tag("pillkeeperlogo.png", alt: "pillkeeper logo"), root_path %></p>
+    <p class="navbar-text"> Hello <%= link_to "#{current_user.first_name}!", user_path(current_user.id)  %></p>
+    <p class="navbar-text"><%= link_to 'sign out', destroy_user_session_path, method: :delete %></p>
 </div>
+</nav>
 
-
+<body>
 <h2>Edit medication</h2>
 
 <%= form_for @med do |f| %>
@@ -19,29 +20,37 @@
       </ul>
   <% end %>
 
-<p> <%= f.label "Med Name" %>
-    <%= f.text_field :med_name %> 
+<p> 
+  <%= f.label "Med Name" %>
+  <%= f.text_field :med_name %> 
 </p>
-<p> <%= f.label "Dosage" %>
-    <%= f.text_field :dosage %> 
+<p> 
+  <%= f.label "Dosage" %>
+  <%= f.text_field :dosage %> 
 </p>
-<p> <%= f.label "Time of Day" %>
-    <%= f.text_field :time_of_day %> 
+<p> 
+  <%= f.label "Time of Day" %>
+  <%= f.text_field :time_of_day %> 
 </p>
-<p> <%= f.label "Prescriber Name" %>
-    <%= f.text_field :prescriber %> 
+<p> 
+  <%= f.label "Prescriber Name" %>
+  <%= f.text_field :prescriber %> 
 </p>
-<p> <%= f.label "Prescriber Email" %>
-    <%= f.text_field :email %> 
+<p> 
+  <%= f.label "Prescriber Email" %>
+  <%= f.text_field :email %> 
 </p>
-<p> <%= f.label "Prescriber Phone" %>
-    <%= f.text_field :phone %> 
+<p> 
+  <%= f.label "Prescriber Phone" %>
+  <%= f.text_field :phone %> 
 </p>
+    
 <%= f.hidden_field :user_id, :value => current_user.id %>
 
-  <p>
+<p>
     <%= f.submit "Update" %>
-  </p>
-  <p> <%= link_to 'back', meds_path %></p>
+</p>
+
+<p> <%= link_to 'back', meds_path %></p>
 <% end %>
-  
+</body>

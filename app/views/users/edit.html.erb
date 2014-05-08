@@ -1,12 +1,13 @@
-<div>
-  <%= link_to image_tag("pillkeeperlogo.png", alt: "pillkeeper logo"), root_path %>
-  Hello <%= link_to "#{current_user.first_name}!", user_path(current_user.id)  %>
-  <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
-  <hr />
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <p class="navbar-brand"><%= link_to image_tag("pillkeeperlogo.png", alt: "pillkeeper logo"), root_path %></p>
+    <p class="navbar-text"> Hello <%= link_to "#{current_user.first_name}!", user_path(current_user.id)  %></p>
+    <p class="navbar-text"><%= link_to 'sign out', destroy_user_session_path, method: :delete %></p>
 </div>
-<h1> Edit my User Information </h1>
+</nav>
 
-
+<body>
+<h2> Edit my User Information </h2>
 
 <%= form_for @user do |f| %>
 
@@ -41,3 +42,4 @@
 
 <p><%= link_to "Change your password", edit_user_registration_path %></p>
 <%= link_to "<< back", user_path %>
+</body>

@@ -1,9 +1,17 @@
-<h1>Welcome to Pillkeeper!</h1>
-<p>This app is awesome and will let you do the following:</p>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <p class="navbar-brand"><%= link_to image_tag("pillkeeperlogo.png", alt: "pillkeeper logo"), root_path %></p>
+</div>
+</nav>
+
+<h1>PillKeeper v. 1.0</h1>
+<body class="body description">
+<p>PillKeeper was designed by</p>
   <ul>
     <li>cool thing</li>
     <li>cool thing</li>
     <li>cool thing</li>
   </ul>
 
-<p>To begin, please <%= link_to "sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %></p>
+<p>To begin, please <%= link_to "sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %></p>.
+</body>

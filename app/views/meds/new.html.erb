@@ -1,14 +1,15 @@
-<div>
-  <%= link_to image_tag("pillkeeperlogo.png", alt: "pillkeeper logo"), root_path %>
-  Hello <%= link_to "#{current_user.first_name}!", user_path(current_user.id)  %>
-  <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
-  <hr />
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <p class="navbar-brand"><%= link_to image_tag("pillkeeperlogo.png", alt: "pillkeeper logo"), root_path %></p>
+    <p class="navbar-text"> Hello <%= link_to "#{current_user.first_name}!", user_path(current_user.id)  %></p>
+    <p class="navbar-text"><%= link_to 'sign out', destroy_user_session_path, method: :delete %></p>
 </div>
+</nav>
 
 <h2>Add a new medication</h2>
 
 <div class="form-group">
-  <%= form_for @med do |f| %>
+  <%= form_for @med do |f|  %>
   
     <% if @med.errors.any? %>
         <h3> <%= pluralize(@med.errors.count, "error") %> prohibited this medication from being saved </h3>
@@ -19,19 +20,15 @@
         </ul>
     <% end %>
   
-  <p> <%= f.label "Med Name" %>
-      <%= f.text_field :med_name, :placeholder => "enter your med name" %> 
+  <p> <%= f.label "Medication" %>
+      <%= f.text_field :med_name, :placeholder => "Enter the medication name" %> 
   </p>
   <p> <%= f.label "Dosage" %>
       <%= f.text_field :dosage %> 
   </p>
-  <p> <%= f.label "Time of Day" %>
-      <%= check_box_tag(:breakfast) %>
-      <%= label_tag(:breakfast, "breakfast") %>
-      <%= check_box_tag(:lunch) %>
-      <%= label_tag(:lunch, "lunch") %>
-      <%= check_box_tag(:dinner) %>
-      <%= label_tag(:dinner, "dinner") %>
+  <p> 
+      <%= f.label "Time of Day" %>
+      <%= f.text_field :time_of_day, :placeholder => "e.g., breakfast or bedtime" %>
   </p>
       
   <p> <%= f.label "Prescriber Name" %>
