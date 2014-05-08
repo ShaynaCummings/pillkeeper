@@ -4,10 +4,7 @@ Pillkeeper::Application.routes.draw do
   resources :meds
   resources :users, only: [:edit, :show, :update]
   get "/meds", to: "meds#index", as: "user_root"
+  get "/forthcoming", to: "static#forthcoming"
   
-
-   # devise_scope :user do
-   #    resources :users
-   # end
 
 end

@@ -1,21 +1,16 @@
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <p class="navbar-brand"><%= link_to image_tag("pillkeeperlogo.png", alt: "pillkeeper logo"), root_path %></p>
-    <p class="navbar-text"> Hello <%= link_to "#{current_user.first_name}!", user_path(current_user.id)  %></p>
-    <p class="navbar-text"><%= link_to 'sign out', destroy_user_session_path, method: :delete %></p>
-</div>
-</nav>
 
 <body>
 <h2><%= @med.med_name.upcase %></h2>
 
-<p> Name: <%= @med.med_name %></p> 
-<p> Dosage: <%= @med.dosage %></p>
-<p> Time of Day: <%= @med.time_of_day %></p>
-<p> Prescriber: <%= @med.prescriber %></p>
-<p> Prescriber Email: <%= @med.email %></p>
-<p> Prescriber Phone: <%= @med.phone %></p>
-
+<table>
+  <tr><td><strong> Name:</strong></td> <td> <%= @med.med_name %></td> <tr>
+  <tr><td> <strong>Dosage:</strong></td>  <td> <%= @med.dosage %></td> <tr>
+  <tr><td> <strong>Time of Day:</strong></td>  <td> <%= @med.time_of_day %></td></tr>
+  <tr><td> <strong>Prescriber:</strong></td>  <td> <%= @med.prescriber %></td></tr>
+  <tr><td> <strong>Prescriber Email:</strong></td>  <td> <%= @med.email %><td></tr>
+  <tr><td> <strong>Prescriber Phone: </strong></td> <td> <%= @med.phone %><td></tr>
+</table>
+  <br />
 <p> <%= link_to 'edit', edit_med_path %></p>
 <p> <%= link_to 'back', meds_path %></p>
 </body>

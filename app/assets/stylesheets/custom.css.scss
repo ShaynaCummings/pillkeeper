@@ -1,12 +1,27 @@
 @import "bootstrap";
 
 
-.navbar .nav > li > a {
-      padding:30px 10px 30px
-    }
-
 
 body {
-  padding:10px
+  font:helvetica;
+  padding:15px;
 }
+
+.navbar-brand {
+  position:relative; 
+  top:-6px;
+}
+
+.navbar-text {
+  line-height:30px;
+}
+
+.footer {
+  font-size:10px;
+  text-align:right;
+  color:grey;
+  height: 50px;
+  clear:both;
+  padding-top:150px;
+} 
 

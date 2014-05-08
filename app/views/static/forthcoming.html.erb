@@ -1,16 +1,18 @@
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <p class="navbar-brand"><%= link_to image_tag("pillkeeperlogo.png", alt: "pillkeeper logo"), root_path %></p>
-    <p class="navbar-text"> Hello <%= link_to "#{current_user.first_name}!", user_path(current_user.id)  %></p>
-    <p class="navbar-text"><%= link_to 'sign out', destroy_user_session_path, method: :delete %></p>
-</div>
-</nav>
+<h2>Forthcoming Improvements</h2>
 
-<h2>What's forthcoming</h2>
+<h3>What's in Progress</h3>
 <ol>
-  <li>item</li>
-    <li>item</li>
-    <li>item</li>
-    <li>item</li>
-    <li>item</li>
+    <li>DailyMed API lookup: AJAX Web Service to get consistently updated medial information</li>
+    <li>ActiveMailer: button to instantly share medication information with caretakers and physicians</li>
+    <li>Units Dropdown: input and store dosage information as an integer with a dropdown menu to select relevant medical units </li>
 </ol>
+
+<h3>Down the Road</h3>
+  <ul>
+    <li>Archive Section: allow users to "archive" their inactive medications, and display in a separate view</li>
+    <li>Caretaker Login: allow users to extend view-only login privileges to caretakers</li>
+    <li>Prescriber Library: store and allow for auto-fill of recently-used prescribers and their information</li>
+    <li>Refill Tracking: track the </li>
+    <li>Integration/Exportability: ability to sync or export data to online health trackers</li>
+  </ul>
+

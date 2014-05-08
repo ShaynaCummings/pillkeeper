@@ -1,15 +1,5 @@
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <p class="navbar-brand"><%= link_to image_tag("pillkeeperlogo.png", alt: "pillkeeper logo"), root_path %></p>
-    <p class="navbar-text"> Hello <%= link_to "#{current_user.first_name}!", user_path(current_user.id)  %></p>
-    <p class="navbar-text"><%= link_to 'sign out', destroy_user_session_path, method: :delete %></p>
-</div>
-</nav>
-
-<body>
 <h2>User Information</h2>
 <p>User Name: <%= "#{current_user.first_name} " + "#{current_user.last_name}" %> </p>
 <p>User Email: <%= "#{current_user.email}" %> </p>
 
 <%= link_to "edit my user Information", edit_user_registration_path %>
-</body>

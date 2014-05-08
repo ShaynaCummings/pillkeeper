@@ -17,8 +17,23 @@
     <![endif]-->
 </head>
 <body>
+  
+  <nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <p class="navbar-brand"><%= link_to image_tag("pillkeeperlogo.png", alt: "pillkeeper logo"), root_path %></p>
+    <% if user_signed_in? %>
+    <p class="navbar-text"> Hello <%= link_to "#{current_user.first_name}!", user_path(current_user.id)  %></p>
+    <p class="navbar-text"><%= link_to 'sign out', destroy_user_session_path, method: :delete %></p>
+    <% end %>
+</div>
+</nav>
+  
 
 <%= yield %>
 
-</body>
+</body>  
+<footer class="footer">
+  &#169; <em>BananaCat Productions 2014</em><br />
+  <a href="/forthcoming">Planned Improvements</a>
+</footer>
 </html>
