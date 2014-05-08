@@ -1,53 +1,53 @@
 <div>
-  <%= image_tag("pillkeeperlogo.png", alt: "pillkeeper logo")%>
-  Hello <%=  "#{current_user.first_name}!" %>
+  <%= link_to image_tag("pillkeeperlogo.png", alt: "pillkeeper logo"), root_path %>
+  Hello <%= link_to "#{current_user.first_name}!", user_path(current_user.id)  %>
   <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
-  <%= link_to 'my meds', meds_path, method: :get %>
   <hr />
 </div>
 
 <h2>Add a new medication</h2>
 
-  <div class="form-group">
-<%= form_for @med do |f| %>
-
-  <% if @med.errors.any? %>
-      <h3> <%= pluralize(@med.errors.count, "error") %> prohibited this medication from being saved </h3>
-      <ul>
-      <% @med.errors.full_messages.each do |message| %>
-          <li><%= message %> </li>
-      <% end %>
-      </ul>
-  <% end %>
-
-<p> <%= f.label "Med Name" %>
-    <%= f.text_field :med_name, :placeholder => "enter your med name" %> 
-</p>
-<p> <%= f.label "Dosage" %>
-    <%= f.text_field :dosage %> 
-</p>
-<p> <%= f.label "Time of Day" %>
-    <%= check_box_tag(:breakfast) %>
-    <%= label_tag(:breakfast, "breakfast") %>
-    <%= check_box_tag(:lunch) %>
-    <%= label_tag(:lunch, "lunch") %>
-      <%= check_box_tag(:dinner) %>
-    <%= label_tag(:dinner, "dinner") %>
-</p>
-    
-<p> <%= f.label "Prescriber Name" %>
-    <%= f.text_field :prescriber %> 
-</p>
-<p>
-  <%= f.label "Prescriber Email" %>
-  <%= f.text_field :email %> 
-</p>
-    
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-
-  <p>
-    <%= f.submit "Add new med" %>
+<div class="form-group">
+  <%= form_for @med do |f| %>
+  
+    <% if @med.errors.any? %>
+        <h3> <%= pluralize(@med.errors.count, "error") %> prohibited this medication from being saved </h3>
+        <ul>
+        <% @med.errors.full_messages.each do |message| %>
+            <li><%= message %> </li>
+        <% end %>
+        </ul>
+    <% end %>
+  
+  <p> <%= f.label "Med Name" %>
+      <%= f.text_field :med_name, :placeholder => "enter your med name" %> 
   </p>
-  </div>
+  <p> <%= f.label "Dosage" %>
+      <%= f.text_field :dosage %> 
+  </p>
+  <p> <%= f.label "Time of Day" %>
+      <%= check_box_tag(:breakfast) %>
+      <%= label_tag(:breakfast, "breakfast") %>
+      <%= check_box_tag(:lunch) %>
+      <%= label_tag(:lunch, "lunch") %>
+      <%= check_box_tag(:dinner) %>
+      <%= label_tag(:dinner, "dinner") %>
+  </p>
+      
+  <p> <%= f.label "Prescriber Name" %>
+      <%= f.text_field :prescriber %> 
+  </p>
+  <p>
+    <%= f.label "Prescriber Email" %>
+    <%= f.text_field :email %> 
+  </p>
+      
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  
+  <p>
+     <%= f.submit "Add this med" %>
+  </p>
+  
+  <% end %>
+</div>
 
-<% end %>

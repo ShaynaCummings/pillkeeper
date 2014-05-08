@@ -40,20 +40,12 @@ class MedsController < ApplicationController
       render :edit
     end
    end
-  
-  def delete
-    @med = Med.find(params[:id])
-   # if @med.present?
-      @med.delete
-   # else
-    redirect_to meds_path
-   # end
-  end
-  
-  def destroy
-    redirect_to meds_path
-  end
 
+  def destroy
+      @med = Med.find(params[:id])
+      @med.destroy
+    redirect_to meds_path
+    end
   def search 
   end
   
