@@ -1,6 +1,6 @@
 class MedsController < ApplicationController
 
- # before_action :verify_user!
+# before_action :verify_user!
   
  # handles_sortable_columns
   
@@ -52,12 +52,11 @@ class MedsController < ApplicationController
   
   private 
   
-  #def verify_user!
-   #  if current_user.id != params[:id]
-    #   redirect_to root_path
-       
-    # end
-  # end
+ # def verify_user!
+ #   if current_user.id != params[:user_id]
+  #    puts "problem!"
+ #    end
+ #  end
 
     def safe_params
       params.require(:med).permit(:med_name, :dosage, :time_of_day, :prescriber, :email, :user_id)
